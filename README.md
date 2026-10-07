@@ -2,7 +2,7 @@
 
 **A job-search agent for engineers outside the US and EU: it finds the "remote" jobs you can legally take, tailors your resume without inventing a line, finds the person hiring, and applies only after you approve.**
 
-[Live app](https://ocus-ai.vercel.app) · [How it works](#how-it-works) · [What is real](#what-is-real-what-is-not)
+[Live app](https://ocus-ai.vercel.app) · [Demo video](https://drive.google.com/drive/folders/1fvxUjmREz1VqJk2pN6tqoal_Oq6P43SZ) · [How it works](#how-it-works) · [What is real](#what-is-real-what-is-not)
 
 ![Ocus AI homepage: a replay of a real scan, striking out postings closed to Nigeria](docs/screenshots/hero.png)
 
