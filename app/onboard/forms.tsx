@@ -7,7 +7,7 @@ import { Info } from "@/components/info";
 export function Field({ label, info, hint, children }: { label: string; info: React.ReactNode; hint?: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="flex items-center gap-1.5 text-[14px] font-medium text-ink">{label}<Info label={`About ${label}`}>{info}</Info></span>
+      <span className="flex items-center gap-1.5 text-[14px] font-semibold text-ink">{label}<Info label={`About ${label}`}>{info}</Info></span>
       {children}
       {hint && <span className="text-[12.5px] text-muted">{hint}</span>}
     </div>
@@ -22,18 +22,18 @@ export function UploadForm({ compact }: { compact?: boolean }) {
     <form action={action} className="flex flex-col gap-3">
       <label
         onDragOver={() => setDrag(true)} onDragLeave={() => setDrag(false)} onDrop={() => setDrag(false)}
-        className={`relative flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border-2 border-dashed text-center transition-colors
-          ${compact ? "px-4 py-5" : "px-6 py-10"} ${drag ? "border-accent bg-accent-soft" : file ? "border-accent/60 bg-accent-soft/50" : "border-[#D6D6D0] bg-bg hover:border-accent/60"}`}>
+        className={`group relative flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-[12px] border-2 border-dashed text-center transition-colors duration-200
+          ${compact ? "px-4 py-5" : "px-6 py-10"} ${drag ? "border-ink bg-go/40" : file ? "border-ink bg-go/25" : "border-ink/30 bg-paper hover:border-ink hover:bg-card"}`}>
         <input type="file" name="resume" accept="application/pdf,.pdf" required className="absolute inset-0 cursor-pointer opacity-0"
           onChange={(e) => setFile(e.target.files?.[0]?.name || null)} />
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-accent" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-ink transition-transform duration-300 group-hover:-translate-y-1" aria-hidden="true">
           <path d="M12 16V4m0 0-4 4m4-4 4 4" /><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" />
         </svg>
         {file ? <span className="text-[15px] font-semibold text-ink">{file}</span>
-          : <span className="text-[15px] font-semibold text-ink">{compact ? "Upload a new PDF" : "Drop your resume here, or tap to choose"}</span>}
+          : <span className="serif text-[18px] text-ink">{compact ? "Upload a new PDF" : "Drop your resume here, or tap to choose"}</span>}
         <span className="text-[13px] text-muted">PDF with selectable text · up to 5 MB</span>
       </label>
-      {state?.error && <p role="alert" className="rounded-lg bg-warn-soft px-3 py-2 text-[14px] text-warn-ink">{state.error}</p>}
+      {state?.error && <p role="alert" className="rounded-[10px] bg-warn-soft px-3 py-2.5 text-[14px] text-warn-ink">{state.error}</p>}
       {file && <Submit pending="Reading your resume… (about 15s)">{compact ? "Replace resume" : "Upload and read"}</Submit>}
     </form>
   );
@@ -86,7 +86,7 @@ export function FactsForm({ d }: { d: Record<string, any> }) {
       </div>
       <div className="flex flex-wrap items-center gap-3">
         <Submit pending="Saving…">Save details</Submit>
-        {state?.ok && <span className="text-[14px] font-medium text-accent" role="status">✓ Saved</span>}
+        {state?.ok && <span className="tag bg-go text-ink" role="status">✓ Saved</span>}
         {state?.error && <span className="text-[14px] text-warn-ink" role="alert">{state.error}</span>}
       </div>
     </form>

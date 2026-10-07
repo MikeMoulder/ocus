@@ -12,23 +12,23 @@ type Status = "done" | "todo" | "optional";
 
 function StepCard({ id, n, title, status, desc, info, children }: { id: string; n: number; title: string; status: Status; desc: string; info: React.ReactNode; children: React.ReactNode }) {
   return (
-    <section id={id} className="card scroll-mt-6 overflow-visible">
-      <div className="flex items-start gap-4 border-b border-line px-5 py-5 sm:px-6">
-        <span className={`mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-full text-[14px] font-semibold ${status === "done" ? "bg-accent text-white" : "border border-line bg-bg text-ink-2"}`}>
+    <section id={id} className="enter card scroll-mt-24 overflow-visible" style={{ ["--i" as string]: n }}>
+      <div className="flex items-start gap-4 border-b border-line px-5 py-5 sm:gap-5 sm:px-7 sm:py-6">
+        <span className={`display flex h-12 w-12 flex-none items-center justify-center rounded-full text-[24px] leading-none ${status === "done" ? "bg-go text-ink" : "border border-ink text-ink"}`}>
           {status === "done" ? "✓" : n}
         </span>
-        <div className="flex min-w-0 flex-1 flex-col gap-1">
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5">
           <div className="flex flex-wrap items-center gap-2">
-            <h2 className="text-[18px] font-semibold">{title}</h2>
+            <h2 className="serif text-[24px] leading-tight">{title}</h2>
             <Info label={`About ${title}`}>{info}</Info>
-            <span className={`ml-auto rounded-full px-2.5 py-0.5 text-[12px] font-semibold ${status === "done" ? "bg-accent-soft text-accent-ink" : status === "optional" ? "bg-soft text-muted" : "bg-warn-soft text-warn-ink"}`}>
+            <span className={`tag ml-auto ${status === "done" ? "bg-go text-ink" : status === "optional" ? "bg-soft text-muted" : "bg-warn-soft text-warn-ink"}`}>
               {status === "done" ? "Done" : status === "optional" ? "Optional" : "To do"}
             </span>
           </div>
           <p className="text-[14px] leading-relaxed text-muted">{desc}</p>
         </div>
       </div>
-      <div className="px-5 py-5 sm:px-6">{children}</div>
+      <div className="px-5 py-6 sm:px-7">{children}</div>
     </section>
   );
 }
@@ -38,28 +38,28 @@ function ResumeSummary({ r }: { r: any }) {
   const lines = (r.summary ? 1 : 0) + (r.experience || []).reduce((n: number, e: any) => n + e.bullets.length, 0) + (r.projects || []).reduce((n: number, p: any) => n + p.bullets.length, 0);
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap items-start justify-between gap-3 rounded-xl border border-line bg-bg p-4">
+      <div className="flex flex-wrap items-start justify-between gap-3 rounded-[12px] border border-ink bg-paper p-4">
         <div className="flex min-w-0 flex-col gap-0.5">
-          <span className="text-[17px] font-semibold capitalize">{String(r.name || "").toLowerCase()}</span>
+          <span className="serif text-[22px] capitalize">{String(r.name || "").toLowerCase()}</span>
           <span className="text-[14px] text-ink-2">{r.title}{r.contact?.location ? ` · ${r.contact.location}` : ""}</span>
         </div>
-        <span className="max-w-full truncate rounded-full bg-card px-2.5 py-1 text-[12px] font-medium text-muted ring-1 ring-line">
+        <span className="tag max-w-full truncate bg-card text-muted ring-1 ring-line">
           {src.kind === "pdf" ? `From ${src.file}` : src.kind === "demo" || !src.kind ? "Demo resume" : ""}
         </span>
       </div>
-      <dl className="grid grid-cols-3 gap-3 text-center">
+      <dl className="grid grid-cols-3 overflow-hidden rounded-[12px] border border-line text-center">
         {[["Roles", (r.experience || []).length], ["Projects", (r.projects || []).length], ["Skills", (r.skills || []).length]].map(([k, v]) => (
-          <div key={k as string} className="rounded-xl bg-soft px-2 py-3"><dt className="text-[12px] text-muted">{k}</dt><dd className="text-[22px] font-bold">{v}</dd></div>
+          <div key={k as string} className="border-l border-line px-2 py-3 first:border-l-0"><dt className="mono text-[11px] uppercase tracking-[.1em] text-muted">{k}</dt><dd className="display text-[34px] leading-tight">{v}</dd></div>
         ))}
       </dl>
       {src.check && (
-        <p className={`rounded-lg px-3 py-2 text-[14px] ${src.check.dropped?.length ? "bg-warn-soft text-warn-ink" : "bg-accent-soft text-accent-ink"}`}>
+        <p className={`rounded-[10px] px-3 py-2.5 text-[14px] ${src.check.dropped?.length ? "bg-warn-soft text-warn-ink" : "bg-go text-ink"}`}>
           {src.check.dropped?.length
             ? `${src.check.matched} of ${src.check.total} lines matched your PDF word-for-word. ${src.check.dropped.length} reworded line(s) were left out, so the agent never treats them as facts.`
             : `✓ All ${src.check.total} lines matched your PDF word-for-word. The agent will only ever use these.`}
         </p>
       )}
-      <details className="group rounded-xl border border-line">
+      <details className="group rounded-[12px] border border-line">
         <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-[14px] font-semibold">
           What your agent will use ({lines} lines)
           <span className="text-muted transition-transform group-open:rotate-180" aria-hidden="true">⌄</span>
@@ -68,15 +68,15 @@ function ResumeSummary({ r }: { r: any }) {
           {r.summary?.text && <div><b>Summary</b><p className="mt-1 text-ink-2">{r.summary.text}</p></div>}
           {(r.experience || []).map((e: any) => (
             <div key={e.id}><b>{e.role}</b> <span className="text-muted">· {e.company}</span>
-              <ul className="mt-1 flex flex-col gap-1 text-ink-2">{e.bullets.map((b: any) => <li key={b.id} className="flex gap-2"><span className="text-accent">•</span>{b.text}</li>)}</ul>
+              <ul className="mt-1 flex flex-col gap-1 text-ink-2">{e.bullets.map((b: any) => <li key={b.id} className="flex gap-2"><span className="text-signal-ink">•</span>{b.text}</li>)}</ul>
             </div>
           ))}
           {(r.projects || []).map((p: any) => (
             <div key={p.id}><b>{p.name}</b> <span className="text-muted">· {p.tagline}</span>
-              <ul className="mt-1 flex flex-col gap-1 text-ink-2">{p.bullets.map((b: any) => <li key={b.id} className="flex gap-2"><span className="text-accent">•</span>{b.text}</li>)}</ul>
+              <ul className="mt-1 flex flex-col gap-1 text-ink-2">{p.bullets.map((b: any) => <li key={b.id} className="flex gap-2"><span className="text-signal-ink">•</span>{b.text}</li>)}</ul>
             </div>
           ))}
-          <div className="flex flex-wrap gap-1.5">{(r.skills || []).map((s: string) => <span key={s} className="rounded-md bg-soft px-2 py-0.5 text-[13px] text-ink-2">{s}</span>)}</div>
+          <div className="flex flex-wrap gap-1.5">{(r.skills || []).map((s: string) => <span key={s} className="rounded-[6px] border border-line bg-paper px-2 py-0.5 text-[13px] text-ink-2">{s}</span>)}</div>
         </div>
       </details>
     </div>
@@ -97,27 +97,28 @@ export default async function Onboard() {
   const autopilotOn = Boolean((u as any).autopilot?.enabled);
 
   return (
-    <div className="min-h-screen bg-bg">
+    <div className="min-h-screen">
       <AppHeader user={u} active="onboard" />
-      <main className="mx-auto grid max-w-[1080px] gap-8 px-4 py-8 sm:px-8 lg:grid-cols-[240px_1fr] lg:py-10">
-        <aside className="flex flex-col gap-5 lg:sticky lg:top-8 lg:self-start">
-          <div className="flex flex-col gap-1.5">
-            <h1 className="text-[28px] font-bold leading-tight tracking-[-0.02em]">Set up your agent</h1>
+      <main className="mx-auto grid max-w-[1140px] gap-10 px-4 py-10 sm:px-8 lg:grid-cols-[260px_1fr] lg:py-14">
+        <aside className="enter flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
+          <div className="flex flex-col gap-2">
+            <span className="eyebrow">Profile</span>
+            <h1 className="display text-[42px] leading-[1]">Set up your <em>agent.</em></h1>
             <p className="text-[14px] leading-relaxed text-muted">About 2 minutes. Your agent only ever uses what you put here.</p>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="flex justify-between text-[13px] font-medium text-ink-2"><span>Progress</span><span>{done} of 3</span></div>
-            <div className="h-1.5 overflow-hidden rounded-full bg-soft"><div className="h-full rounded-full bg-accent transition-all" style={{ width: `${(done / 3) * 100}%` }} /></div>
+            <div className="mono flex justify-between text-[11px] uppercase tracking-[.1em] text-ink-2"><span>Progress</span><span>{done} of 3</span></div>
+            <div className="h-2 overflow-hidden rounded-full border border-ink bg-card"><div className="h-full bg-go transition-all duration-700" style={{ width: `${(done / 3) * 100}%` }} /></div>
           </div>
-          <nav aria-label="Setup steps" className="flex flex-wrap gap-x-1 gap-y-1 lg:flex-col">
+          <nav aria-label="Setup steps" className="flex flex-wrap gap-1 lg:flex-col">
             {steps.map((s, i) => (
-              <a key={s.id} href={`#${s.id}`} className="flex flex-none items-center gap-2.5 rounded-lg px-2.5 py-2 text-[14px] text-ink-2 no-underline hover:bg-soft">
-                <span className={`flex h-6 w-6 flex-none items-center justify-center rounded-full text-[12px] font-semibold ${s.status === "done" ? "bg-accent text-white" : "border border-line bg-card"}`}>{s.status === "done" ? "✓" : i + 1}</span>
+              <a key={s.id} href={`#${s.id}`} className="flex flex-none items-center gap-3 rounded-[10px] px-2.5 py-2 text-[14px] text-ink-2 no-underline transition-colors hover:bg-card hover:text-ink">
+                <span className={`mono flex h-6 w-6 flex-none items-center justify-center rounded-full text-[11px] ${s.status === "done" ? "bg-go text-ink" : "border border-ink"}`}>{s.status === "done" ? "✓" : i + 1}</span>
                 {s.title}
               </a>
             ))}
           </nav>
-          {autopilotOn && <Link href="/dashboard" className="btn btn-ghost hidden lg:inline-flex">Go to dashboard →</Link>}
+          {autopilotOn && <Link href="/dashboard" className="btn btn-outline btn-sm hidden self-start lg:inline-flex">Go to dashboard <span className="arr" aria-hidden="true">→</span></Link>}
         </aside>
 
         <div className="flex min-w-0 flex-col gap-6">
@@ -128,7 +129,7 @@ export default async function Onboard() {
               <div className="flex flex-col gap-5">
                 <ResumeSummary r={r} />
                 <div className="flex flex-col gap-2">
-                  <span className="text-[13px] font-medium text-muted">Have a newer version?</span>
+                  <span className="mono text-[11px] uppercase tracking-[.1em] text-muted">Have a newer version?</span>
                   <UploadForm compact />
                 </div>
               </div>
@@ -137,7 +138,7 @@ export default async function Onboard() {
                 <UploadForm />
                 <form action={loadDemoResume} className="flex flex-wrap items-center justify-center gap-2 text-[14px] text-muted">
                   No resume handy?
-                  <Submit className="font-semibold text-accent underline-offset-2 hover:underline" pending="Loading…">Use the demo resume</Submit>
+                  <Submit className="font-semibold text-ink underline underline-offset-4 hover:text-signal-ink" pending="Loading…">Use the demo resume</Submit>
                 </form>
               </div>
             )}
@@ -157,50 +158,48 @@ export default async function Onboard() {
           <StepCard id="gmail" n={3} title="Connect Gmail" status={steps[2].status}
             desc="So your agent can ask for approval before applying and confirm when it's done."
             info="Connecting gives your private agent computer (on Agent37) permission to send email from your Gmail. It only ever emails you: approval requests and “Applied” confirmations. You can disconnect any time.">
-            <div className="flex flex-col gap-4">
-              <ul className="flex flex-col gap-2 text-[14px] text-ink-2">
-                <li className="flex gap-2"><span className="text-accent">✓</span>Approval requests with a “Review and approve” button</li>
-                <li className="flex gap-2"><span className="text-accent">✓</span>“Applied” confirmations with your outreach note</li>
-                <li className="flex gap-2"><span className="text-accent">✓</span>Only ever sent to you, from your own inbox</li>
+            <div className="flex flex-col gap-5">
+              <ul className="flex flex-col gap-2.5 text-[15px] text-ink-2">
+                <li className="flex gap-3"><span className="text-go-ink">✓</span>Approval requests with a “Review and approve” button</li>
+                <li className="flex gap-3"><span className="text-go-ink">✓</span>“Applied” confirmations with your outreach note</li>
+                <li className="flex gap-3"><span className="text-go-ink">✓</span>Only ever sent to you, from your own inbox</li>
               </ul>
               <div className="flex flex-wrap items-center gap-4">
-                {!u.gmail_active && <form action={connectGmailAction}><Submit pending="Opening Google…">Connect Gmail</Submit></form>}
+                {!u.gmail_active && <form action={connectGmailAction}><Submit pending="Opening Google…">Connect Gmail <span className="arr" aria-hidden="true">→</span></Submit></form>}
                 <GmailStatus initial={Boolean(u.gmail_active)} hasInstance={Boolean(u.agent37_instance_id)} />
               </div>
               {u.agent37_instance_id && (
-                <p className="flex items-center gap-2 text-[13px] text-muted">
-                  <span className="h-2 w-2 rounded-full bg-accent" />Private agent computer ready · sleeps when idle
+                <p className="mono flex items-center gap-2.5 text-[11px] uppercase tracking-[.08em] text-muted">
+                  <span className="live live-go" />Private agent computer ready · sleeps when idle
                 </p>
               )}
             </div>
           </StepCard>
 
-          <section className={`card overflow-hidden ${r ? "card-hot" : ""}`}>
-            <div className="flex flex-col gap-4 p-5 sm:p-6">
-              <div className="flex items-start gap-3">
-                <span className="text-[22px]" aria-hidden="true">🚀</span>
-                <div className="flex flex-col gap-1">
-                  <h2 className="text-[19px] font-semibold">{autopilotOn ? "Autopilot is on" : "Start your automatic job search"}</h2>
-                  <p className="text-[14px] leading-relaxed text-ink-2">
-                    Your agent searches every day at 8:00 AM (Lagos time), keeps only jobs open to you, prepares the best {3} with a tailored resume and a note
-                    for the hiring contact, and <b>emails you to approve</b>. You don&apos;t need to keep this site open.
-                  </p>
-                </div>
+          <section className={`enter overflow-hidden rounded-[14px] ${r ? "card-hot bg-ink text-paper" : "border border-dashed border-ink/40"}`} style={{ ["--i" as string]: 4 }}>
+            <div className="flex flex-col gap-6 p-6 sm:p-8">
+              <div className="flex flex-col gap-3">
+                <span className={`mono text-[11px] uppercase tracking-[.1em] ${r ? "text-go" : "text-muted"}`}>{autopilotOn ? "Running" : "Last step"}</span>
+                <h2 className="display text-[38px] leading-[1] sm:text-[46px]">{autopilotOn ? <>Autopilot is <em>on.</em></> : <>Start your automatic <em>job search.</em></>}</h2>
+                <p className={`max-w-[620px] text-[15px] leading-relaxed ${r ? "text-paper/75" : "text-ink-2"}`}>
+                  Your agent searches every day at 8:00 AM (Lagos time), keeps only jobs open to you, prepares the best 3 with a tailored resume and a note
+                  for the hiring contact, and <b className={r ? "text-paper" : ""}>emails you to approve</b>. You don&apos;t need to keep this site open.
+                </p>
               </div>
-              <ol className="grid gap-2 text-[13px] text-ink-2 sm:grid-cols-4">
-                {["Search & filter", "Score & pick top 3", "Tailor + find contact", "Email you to approve"].map((t, i) => (
-                  <li key={t} className="flex items-center gap-2 rounded-lg bg-soft px-3 py-2"><span className="font-mono text-accent">{i + 1}</span>{t}</li>
+              <ol className={`grid gap-px overflow-hidden rounded-[10px] text-[13px] sm:grid-cols-4 ${r ? "bg-paper/15" : "bg-line"}`}>
+                {["Search and filter", "Score, pick top 3", "Tailor, find contact", "Email you to approve"].map((t, i) => (
+                  <li key={t} className={`flex items-center gap-2.5 px-3.5 py-3 ${r ? "bg-ink" : "bg-paper"}`}><span className={`mono ${r ? "text-go" : "text-signal-ink"}`}>0{i + 1}</span>{t}</li>
                 ))}
               </ol>
               {!u.gmail_active && r && (
-                <p className="rounded-lg bg-warn-soft px-3 py-2 text-[13px] text-warn-ink">Without Gmail, matches still get prepared but only show on your dashboard. Connect it above to get them by email.</p>
+                <p className="rounded-[10px] bg-warn-soft px-3.5 py-2.5 text-[13px] text-warn-ink">Without Gmail, matches still get prepared but only show on your dashboard. Connect it above to get them by email.</p>
               )}
               {autopilotOn ? (
-                <Link href="/dashboard" className="btn btn-primary self-start">Go to dashboard →</Link>
+                <Link href="/dashboard" className="btn self-start bg-go text-ink hover:bg-paper">Go to dashboard <span className="arr" aria-hidden="true">→</span></Link>
               ) : (
-                <form action={startAutopilot}>
-                  <Submit disabled={!r} pending="Starting your agent…">Start automatic job search</Submit>
-                  {!r && <span className="ml-3 text-[13px] text-muted">Add your resume first</span>}
+                <form action={startAutopilot} className="flex flex-wrap items-center gap-3">
+                  <Submit className="btn bg-go text-ink hover:bg-paper disabled:bg-soft disabled:text-muted" disabled={!r} pending="Starting your agent…">Start automatic job search <span className="arr" aria-hidden="true">→</span></Submit>
+                  {!r && <span className="text-[13px] text-muted">Add your resume first</span>}
                 </form>
               )}
             </div>

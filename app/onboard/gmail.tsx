@@ -19,7 +19,7 @@ export function GmailStatus({ initial, hasInstance }: { initial: boolean; hasIns
     }, 2000);
     return () => clearInterval(t);
   }, [active, hasInstance, router]);
-  if (active) return <span className="rounded-lg bg-accent-soft px-3 py-2 text-[15px] font-semibold text-accent-ink">✓ Gmail connected</span>;
+  if (active) return <span className="tag bg-go px-3 py-2 text-[12px] text-ink">✓ Gmail connected</span>;
   if (!hasInstance) return null;
-  return <span className="text-[14px] text-muted" aria-live="polite">Waiting for Google… ({status.toLowerCase()})</span>;
+  return <span className="mono flex items-center gap-2 text-[12px] uppercase tracking-[.08em] text-muted" aria-live="polite"><span className="live" />Waiting for Google… ({status.toLowerCase()})</span>;
 }

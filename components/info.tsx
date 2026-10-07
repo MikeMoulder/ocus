@@ -19,12 +19,12 @@ export function Info({ children, label = "What is this?" }: { children: React.Re
     <span ref={ref} className="relative inline-flex align-middle" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button type="button" aria-label={label} aria-expanded={open} aria-describedby={open ? id : undefined}
         onClick={(e) => { e.preventDefault(); setOpen((o) => !o); }} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)}
-        className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#C9C9C2] text-[11px] font-semibold italic leading-none text-muted hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-accent">
+        className="inline-flex h-5 w-5 items-center justify-center rounded-full serif border border-muted/60 text-[12px] italic leading-none text-muted transition-colors hover:border-ink hover:bg-ink hover:text-paper">
         i
       </button>
       {open && (
         <span role="tooltip" id={id}
-          className="absolute left-1/2 top-full z-20 mt-2 w-[260px] -translate-x-1/2 rounded-lg bg-ink px-3 py-2.5 text-[13px] font-normal not-italic leading-relaxed text-white shadow-lg sm:left-0 sm:translate-x-0">
+          className="absolute left-1/2 top-full z-20 mt-2 w-[260px] -translate-x-1/2 enter rounded-[10px] bg-ink px-3.5 py-3 text-[13px] font-normal not-italic leading-relaxed text-paper shadow-[4px_4px_0_var(--signal)] sm:left-0 sm:translate-x-0">
           {children}
         </span>
       )}
