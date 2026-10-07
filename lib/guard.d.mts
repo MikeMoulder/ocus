@@ -1,0 +1,1 @@
+export function buildIndex(base: any): any; export function forbiddenTerms(a: string, b: string): string[]; export function check(base: any, jobText: string, out: any): { ok: boolean; cited: number; total: number; errors: string[]; forbiddenSample: string[] };

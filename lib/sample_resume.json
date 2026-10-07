@@ -1,0 +1,461 @@
+{
+  "_note": "Source of truth for tailoring. Extracted verbatim from the PDF resume. The tailoring LLM may only select/reorder/reword these entries; every output bullet must cite a source_id below. Add real details here (metrics, project links) BEFORE the event — the agent cannot use what isn't here.",
+  "name": "Michael Ogundeji",
+  "title": "Software Engineer",
+  "contact": {
+    "email": "mike.moulder.dev@gmail.com",
+    "phone": "+234-8063-791-579",
+    "location": "Ibadan, Nigeria",
+    "github": "https://github.com/mikemoulder"
+  },
+  "summary": {
+    "id": "sum1",
+    "text": "Software engineer and product builder with 4+ years of experience building web applications, games, and blockchain products. I enjoy turning ideas into working products, with a focus on AI, Web3, full-stack development, and developer tools. Skilled in developing plans, managing projects, and user documentation."
+  },
+  "experience": [
+    {
+      "id": "exp1",
+      "role": "Blockchain & AI Developer",
+      "company": "Ortiz Labs (Self)",
+      "start": "2025-12",
+      "end": "present",
+      "bullets": [
+        {
+          "id": "exp1.b1",
+          "text": "Designed and shipped products across AI and Web3, including prediction markets, crypto intelligence tools, agentic systems, and blockchain applications."
+        },
+        {
+          "id": "exp1.b2",
+          "text": "Experienced with Solidity, EVM networks, LLM integrations, and on-chain application architecture."
+        },
+        {
+          "id": "exp1.b3",
+          "verified_by_user": false,
+          "text": "Shipped 20+ deployed web products in 2026, many built solo for hackathons run by the Solana Foundation, Binance, Bitget and others."
+        }
+      ]
+    },
+    {
+      "id": "exp2",
+      "role": "Junior Software Engineer",
+      "company": "Freelance (Upwork)",
+      "start": "2024-07",
+      "end": "present",
+      "bullets": [
+        {
+          "id": "exp2.b1",
+          "text": "Building full-stack, AI, blockchain, and game applications from concept to deployment."
+        }
+      ]
+    },
+    {
+      "id": "exp3",
+      "role": "Game Developer (Freelance Contract)",
+      "company": "Ebel Software",
+      "start": "2023-02",
+      "end": "2023-07",
+      "bullets": [
+        {
+          "id": "exp3.b1",
+          "text": "Developed 2D crypto-themed games and applications with play-to-earn mechanics."
+        },
+        {
+          "id": "exp3.b2",
+          "text": "Designed and implemented gameplay systems, user interactions, and blockchain-related features for engaging player experiences."
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu1",
+      "degree": "Bachelor of Software Engineering",
+      "school": "Abiola Ajimobi Technical University",
+      "location": "Ibadan",
+      "year": "2026",
+      "focus": [
+        "Software Engineering",
+        "Artificial Intelligence",
+        "Object-Oriented Programming",
+        "Algorithms",
+        "Game Development"
+      ]
+    }
+  ],
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express",
+    "Python",
+    "C#",
+    "Unity",
+    "Solidity",
+    "Foundry",
+    "AI",
+    "LLMs",
+    "Git",
+    "GitHub",
+    "Linux",
+    "Web3",
+    "Blockchain",
+    "Full-Stack Development",
+    "Software and web development"
+  ],
+  "soft_skills": [
+    "Teamwork",
+    "Multitasking",
+    "Attention to detail"
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "level": "Fluent"
+    },
+    {
+      "language": "French",
+      "level": "B2 Certificate"
+    },
+    {
+      "language": "Yoruba",
+      "level": "Native"
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj1",
+      "verified_by_user": false,
+      "name": "Conduit",
+      "tagline": "AI investing copilot whose limits are enforced on-chain, not in the prompt",
+      "context": "Stocklana hackathon (Solana Foundation), solo",
+      "links": {
+        "live": "https://ai-conduit.vercel.app",
+        "repo": "https://github.com/MikeMoulder/Conduit"
+      },
+      "stack": [
+        "TypeScript",
+        "Next.js",
+        "Solana",
+        "Anchor",
+        "Rust",
+        "Gemini",
+        "Pyth",
+        "Telegram",
+        "Vercel"
+      ],
+      "bullets": [
+        {
+          "id": "prj1.b1",
+          "text": "Built a Gemini agent with 29 tools that buys tokenized stocks, schedules recurring orders and sets price triggers from plain-English chat messages."
+        },
+        {
+          "id": "prj1.b2",
+          "text": "Wrote a Solana (Anchor) program with 16 instructions and 28 named errors that re-checks every agent trade against user-signed limits, so the AI cannot exceed them."
+        },
+        {
+          "id": "prj1.b3",
+          "text": "Shipped with 392 automated tests and a Gemini model-fallback ladder with cooldowns to survive model outages and rate limits."
+        },
+        {
+          "id": "prj1.b4",
+          "text": "Runs each decision through a five-stage AI committee (Research, Bull, Bear, Risk, Manager) that proposes a portfolio split with a reason per position."
+        },
+        {
+          "id": "prj1.b5",
+          "text": "The agent reasons over up to 6 rounds and 10 tool calls per message and streams a step list showing each tool called, what it found and how many milliseconds it took."
+        }
+      ]
+    },
+    {
+      "id": "prj2",
+      "verified_by_user": false,
+      "name": "KORA",
+      "tagline": "Nigeria-to-Latin-America payment corridor settling USDC on Stellar",
+      "context": "Pollar Hackathon, solo, 170+ commits",
+      "links": {
+        "live": "https://korapay.vercel.app",
+        "repo": "https://github.com/MikeMoulder/kora"
+      },
+      "stack": [
+        "TypeScript",
+        "Next.js",
+        "Stellar SDK",
+        "Gemini",
+        "Vercel"
+      ],
+      "bullets": [
+        {
+          "id": "prj2.b1",
+          "text": "Built the African leg of an Africa–LatAm money corridor: a sender in Lagos types one sentence, pays by Nigerian bank transfer, and USDC lands in a recipient's Stellar wallet."
+        },
+        {
+          "id": "prj2.b2",
+          "text": "Extended a partner's payment-rail registry with five new African rails and integrated its Server API for wallet creation and settlement."
+        },
+        {
+          "id": "prj2.b3",
+          "text": "Combined a deterministic pattern matcher with Gemini for intent parsing so the model can never overrule a number already parsed; 107 automated checks and 4 verifiable on-chain transactions."
+        }
+      ]
+    },
+    {
+      "id": "prj3",
+      "verified_by_user": false,
+      "name": "Erdoit",
+      "tagline": "Invoice financing where an AI underwriter signs its own decisions and the contract enforces the risk limit",
+      "context": "BOT Chain Builder Challenge #2, solo",
+      "links": {
+        "live": "https://erdoit.vercel.app",
+        "repo": "https://github.com/MikeMoulder/Erdoit"
+      },
+      "stack": [
+        "Solidity",
+        "Next.js",
+        "viem",
+        "wagmi",
+        "Gemini"
+      ],
+      "bullets": [
+        {
+          "id": "prj3.b1",
+          "text": "Built an invoice-financing marketplace where an AI agent with its own wallet scores invoice risk 0–100 and submits the verdict on-chain."
+        },
+        {
+          "id": "prj3.b2",
+          "text": "Enforced a hard risk ceiling in the smart contract (scores above 70 are rejected), so a mistaken or compromised AI cannot make a bad invoice fundable; 45 passing tests covering every failure path."
+        }
+      ]
+    },
+    {
+      "id": "prj4",
+      "verified_by_user": false,
+      "name": "Hubit",
+      "tagline": "WebMCP storefront where an AI agent can shop but cannot check out until the user approves",
+      "context": "The WebMCP Challenge, solo",
+      "links": {
+        "live": "https://hubit-store.vercel.app",
+        "repo": "https://github.com/MikeMoulder/Hubit"
+      },
+      "stack": [
+        "TypeScript",
+        "Next.js 16",
+        "React 19",
+        "Tailwind CSS v4",
+        "WebMCP",
+        "Vercel"
+      ],
+      "bullets": [
+        {
+          "id": "prj4.b1",
+          "text": "Implemented a 17-tool WebMCP surface where the checkout tool does not exist in the agent's toolbox until the user approves the basket, making 'look but cannot buy' structural rather than a server-side refusal."
+        },
+        {
+          "id": "prj4.b2",
+          "text": "Found and fixed a race where checkout was briefly callable between two React effects; verified behaviour with a 105-assertion capability audit."
+        }
+      ]
+    },
+    {
+      "id": "prj5",
+      "verified_by_user": false,
+      "name": "Wared",
+      "tagline": "AI front-desk operator for construction offices: AI does intake, fixed rules make decisions",
+      "context": "Built as a job application project",
+      "links": {
+        "live": "https://wared-nine.vercel.app",
+        "repo": "https://github.com/MikeMoulder/wared"
+      },
+      "stack": [
+        "TypeScript",
+        "Next.js 16",
+        "Tailwind CSS v4",
+        "Gemini (structured output)",
+        "Vercel"
+      ],
+      "bullets": [
+        {
+          "id": "prj5.b1",
+          "text": "Built an intake workflow that extracts sender, project, urgency, deadlines and owner from letters, emails and scanned PDFs with Gemini structured output, and drafts bilingual (English/Arabic) acknowledgements."
+        },
+        {
+          "id": "prj5.b2",
+          "text": "Kept decisions in deterministic server code (due-date math, owner validation) so prompt text cannot switch business rules off; added a multi-model Gemini fallback chain."
+        }
+      ]
+    },
+    {
+      "id": "prj6",
+      "verified_by_user": false,
+      "name": "THESIS",
+      "tagline": "Turns an investment thesis into measurable tripwires and monitors them every 15 minutes",
+      "context": "Bitget AI Base Camp Hackathon S2, solo",
+      "links": {
+        "live": "https://thesis-stocks.vercel.app",
+        "repo": "https://github.com/MikeMoulder/thesis"
+      },
+      "stack": [
+        "TypeScript",
+        "Qwen",
+        "MCP",
+        "Bitget Agent Hub SDK",
+        "Telegram"
+      ],
+      "bullets": [
+        {
+          "id": "prj6.b1",
+          "text": "Built a pipeline that decomposes a plain-English investment thesis into claims and hidden assumptions, attaches a measurable tripwire to each, and checks live data every 15 minutes with Telegram alerts."
+        },
+        {
+          "id": "prj6.b2",
+          "text": "Used a second model family (Qwen) as an independent reviewer to catch assumptions the first model missed; tuned the reasoning budget until 10/10 live calls answered in 3–8.5s."
+        }
+      ]
+    },
+    {
+      "id": "prj7",
+      "verified_by_user": false,
+      "name": "Omon",
+      "tagline": "Autonomous trading agent that serves other agents over MCP",
+      "context": "Binance Agent OS Mini Hackathon, Track A, solo",
+      "links": {
+        "live": "https://www.omon-ai.duckdns.org",
+        "repo": "https://github.com/MikeMoulder/Omon-AI"
+      },
+      "stack": [
+        "TypeScript",
+        "MCP (client and server)",
+        "x402",
+        "Binance Agent OS",
+        "Node.js"
+      ],
+      "bullets": [
+        {
+          "id": "prj7.b1",
+          "text": "Built an autonomous trading agent where two model-driven agents form a view and a 13-check deterministic gate with no model in it decides; the gate refused 159 of 241 trade decisions."
+        },
+        {
+          "id": "prj7.b2",
+          "text": "Shipped Omon as both an MCP client and an MCP server, so other agents can call it and pay for its analysis over HTTP 402 on two payment rails (x402 and B402); 14 on-chain payments settled."
+        },
+        {
+          "id": "prj7.b3",
+          "text": "Executed 54 live orders ($2,194.42 notional) on two Binance venues; about 11,000 lines of application TypeScript backed by 154 deterministic offline assertions and 77 live smoke checks."
+        }
+      ]
+    },
+    {
+      "id": "prj8",
+      "verified_by_user": false,
+      "name": "XeroJobs",
+      "tagline": "Job-search agent on the Sentient Agent Framework that streams structured results",
+      "context": "Personal project, 2025",
+      "links": {
+        "repo": "https://github.com/MikeMoulder/XeroJobs"
+      },
+      "stack": [
+        "Python",
+        "Sentient Agent Framework",
+        "OpenRouter",
+        "LLM streaming"
+      ],
+      "bullets": [
+        {
+          "id": "prj8.b1",
+          "text": "Built a Python agent that classifies whether a user is job hunting, extracts search parameters from the conversation history, queries a job API and streams formatted results back."
+        },
+        {
+          "id": "prj8.b2",
+          "text": "Implemented streaming, chunked LLM responses and a fallback path for general career questions on the Sentient Agent Framework."
+        }
+      ]
+    },
+    {
+      "id": "prj9",
+      "verified_by_user": false,
+      "name": "YOLO Markets",
+      "tagline": "Prediction markets with an autonomous agent that trades within a user-set budget",
+      "context": "Arc testnet build",
+      "links": {
+        "live": "https://yolomarkets.fun",
+        "repo": "https://github.com/MikeMoulder/yolomarkets"
+      },
+      "stack": [
+        "TypeScript",
+        "Next.js",
+        "Circle Wallets",
+        "Arc"
+      ],
+      "bullets": [
+        {
+          "id": "prj9.b1",
+          "text": "Built prediction markets across around 8,000 markets priced by an automated market maker, with email one-time-code sign-in instead of a crypto wallet."
+        },
+        {
+          "id": "prj9.b2",
+          "text": "Built an agent that works in continuous cycles within a user's budget and risk profile, with risk limits in ordinary code rather than the prompt, and skips the model call entirely when a trade can be decided deterministically."
+        }
+      ]
+    },
+    {
+      "id": "prj10",
+      "verified_by_user": false,
+      "name": "HashSwap",
+      "tagline": "Private batch trading on an unmodified Uniswap v3 pool",
+      "context": "iExec WTF Hackathon, Summer Edition",
+      "links": {
+        "live": "https://hashswap-sooty.vercel.app",
+        "repo": "https://github.com/MikeMoulder/Hashswap"
+      },
+      "stack": [
+        "Solidity",
+        "TypeScript",
+        "Nox (iExec)",
+        "Uniswap v3"
+      ],
+      "bullets": [
+        {
+          "id": "prj10.b1",
+          "text": "Encrypted orders in the browser, netted opposing orders privately in a batch and sent only the leftover to Uniswap; in a live comparison a sandwich bot took 4,789 DAI through plain Uniswap and 0.00 through HashSwap."
+        }
+      ]
+    }
+  ],
+  "skills_from_projects_unverified": {
+    "_note": "Seen in your project READMEs but NOT in your resume skills list. Move each one you can confidently discuss in an interview into 'skills' above. Until then the truth guard won't use them.",
+    "items": [
+      "Rust",
+      "Anchor (Solana)",
+      "Solana",
+      "Stellar SDK",
+      "viem",
+      "wagmi",
+      "Gemini API",
+      "MCP / WebMCP",
+      "Tailwind CSS",
+      "Telegram Bot API",
+      "Vercel",
+      "Structured LLM output",
+      "Pyth",
+      "MCP",
+      "x402",
+      "Streaming LLM responses",
+      "Sentient Agent Framework",
+      "Circle Wallets",
+      "Agent architecture"
+    ]
+  },
+  "application_facts": {
+    "_note": "FILL IN TRUTHFULLY. Used to answer screening questions on application forms. null = agent must ask you in the approval message.",
+    "country_of_residence": "Nigeria",
+    "authorized_to_work_in": null,
+    "requires_visa_sponsorship": null,
+    "open_to_relocation": null,
+    "linkedin_url": "https://www.linkedin.com/in/ogundejimichael/",
+    "portfolio_url": "https://github.com/MikeMoulder",
+    "notice_period": null,
+    "salary_expectation_usd": null,
+    "earliest_start_date": null
+  }
+}
