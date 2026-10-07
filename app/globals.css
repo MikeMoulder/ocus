@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #F6F6F3;
+  --card: #FFFFFF;
+  --ink: #15171A;
+  --ink-2: #3D424A;
+  --muted: #5B6068;
+  --line: #E3E3DE;
+  --soft: #EEEEEA;
+  --accent: #0F766E;
+  --accent-ink: #0B5A54;
+  --accent-soft: #E3F1EF;
+  --warn-soft: #FDEFD3;
+  --warn-ink: #8A4206;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-soft: var(--soft);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-warn-soft: var(--warn-soft);
+  --color-warn-ink: var(--warn-ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--bg);
+  color: var(--ink);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: background .15s; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-ink); }
+.btn-outline { border: 1px solid var(--accent); color: var(--accent); background: #fff; }
+.btn-ghost { border: 1px solid var(--line); background: #fff; color: var(--ink-2); }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.card-hot { border: 2px solid var(--accent); }
+.input { width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid #D6D6D0; border-radius: 10px; background: #fff; font: inherit; }
+.input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.eyebrow { font-family: var(--font-geist-mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.soon { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: var(--warn-soft); color: var(--warn-ink); }
 }
